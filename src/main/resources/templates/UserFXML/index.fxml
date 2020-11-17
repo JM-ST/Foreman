@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="th.ac.ku.cs.sci.Foreman.Controller.FXMLController.User.IndexUserController">
+   <children>
+      <VBox prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <HBox prefHeight="600.0" prefWidth="800.0">
+               <children>
+                  <Pane prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: black;">
+                     <children>
+                        <VBox prefHeight="600.0" prefWidth="200.0">
+                           <children>
+                              <Pane prefHeight="150.0" prefWidth="200.0">
+                                 <children>
+                                    <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="50.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Pane>
+                              <Pane prefHeight="400.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox prefHeight="400.0" prefWidth="200.0">
+                                       <children>
+                                          <Button layoutX="45.0" layoutY="146.0" mnemonicParsing="false" style="-fx-border-color: white; -fx-border-width: 0px 0px 3px 0px; -fx-background-color: transparent; -fx-text-fill: white;" text="Profile">
+                                             <font>
+                                                <Font name="Noto Sans Bold" size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="35.0" left="35.0" right="35.0" top="35.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#handleBtnCreateSite" style="-fx-border-color: white; -fx-border-width: 0px 0px 3px 0px; -fx-background-color: transparent; -fx-text-fill: white;" text="CreateSite">
+                                             <VBox.margin>
+                                                <Insets bottom="35.0" left="35.0" right="35.0" top="35.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="Noto Sans Bold" size="14.0" />
+                                             </font>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#handleBtnExits" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 3px 0px; -fx-text-fill: white;" text="Exit" textFill="WHITE">
+                                             <VBox.margin>
+                                                <Insets bottom="35.0" left="35.0" right="35.0" top="35.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="Noto Sans Bold" size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="600.0" prefWidth="600.0">
+                     <children>
+                        <VBox prefHeight="600.0" prefWidth="600.0">
+                           <children>
+                              <TableView fx:id="table" prefHeight="500.0" prefWidth="200.0" />
+                              <Pane prefHeight="100.0" prefWidth="600.0">
+                                 <children>
+                                    <Button layoutX="504.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleBtnShow" text="Show" />
+                                 </children></Pane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

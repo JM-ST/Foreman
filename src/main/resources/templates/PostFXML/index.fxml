@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="th.ac.ku.cs.sci.Foreman.Controller.FXMLController.Post.IndexPostController">
+    <children>
+        <VBox prefHeight="600.0" prefWidth="600.0">
+            <children>
+                <Pane prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label fx:id="siteName" layoutX="7.0" layoutY="32.0">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="status" layoutX="280.0" layoutY="31.0">
+                            <font>
+                                <Font name="Noto Sans Regular" size="16.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <TableView fx:id="table" prefHeight="400.0" prefWidth="600.0" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleBtnCreate" text="Create">
+                     <HBox.margin>
+                        <Insets bottom="30.0" left="70.0" right="70.0" top="35.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#handleBtnEdit" text="Edit">
+                     <HBox.margin>
+                        <Insets bottom="30.0" left="70.0" right="70.0" top="35.0" />
+                     </HBox.margin>
+                  </Button>
+                      <Button mnemonicParsing="false" onAction="#handleBtnShow" text="Show">
+                     <HBox.margin>
+                        <Insets bottom="30.0" left="70.0" right="70.0" top="35.0" />
+                     </HBox.margin>
+                      </Button>
+               </children>
+            </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

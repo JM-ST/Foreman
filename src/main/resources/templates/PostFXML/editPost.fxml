@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="th.ac.ku.cs.sci.Foreman.Controller.FXMLController.Post.EditPostController">
+    <children>
+        <VBox prefHeight="600.0" prefWidth="800.0">
+            <children>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <TextField fx:id="topic" promptText="Topic">
+                            <HBox.margin>
+                                <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                            </HBox.margin></TextField>
+                    </children>
+                </HBox>
+                <TextArea fx:id="detail" prefHeight="314.0" prefWidth="760.0" promptText="Report...">
+                    <VBox.margin>
+                        <Insets bottom="50.0" left="50.0" right="50.0" top="30.0" />
+                    </VBox.margin></TextArea>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Button mnemonicParsing="false" text="Upload Image">
+                            <HBox.margin>
+                                <Insets left="500.0" top="20.0" />
+                            </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleBtnUpdate" text="Update">
+                            <HBox.margin>
+                                <Insets left="75.0" top="20.0" />
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

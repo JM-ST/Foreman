@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="th.ac.ku.cs.sci.Foreman.Controller.FXMLController.User.LoginController">
+   <children>
+      <HBox prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: #1A1A1A;">
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: #F2CF19;" />
+         </children></HBox>
+      <Pane prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="204.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <VBox prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #1A1A1A;">
+               <children>
+                  <Pane prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="112.0" layoutY="33.0" text="ForemanReport" textAlignment="CENTER" textFill="#c3c3c3">
+                           <font>
+                              <Font name="Noto Sans Bold Italic" size="24.0" />
+                           </font></Label>
+                     </children></Pane>
+                  <Pane prefHeight="200.0" prefWidth="400.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="400.0">
+                           <children>
+                              <TextField fx:id="email" promptText="Email" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-prompt-text-fill: white; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px; -fx-text-inner-color: white;">
+                                 <VBox.margin>
+                                    <Insets left="30.0" right="30.0" top="30.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Noto Sans Regular" size="13.0" />
+                                 </font>
+                              </TextField>
+                              <PasswordField fx:id="password" promptText="Password" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-prompt-text-fill: white; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px; -fx-text-inner-color: white;">
+                                 <VBox.margin>
+                                    <Insets left="30.0" right="30.0" top="30.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Noto Sans Regular" size="13.0" />
+                                 </font>
+                              </PasswordField>
+                              <Pane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="Btn_login" contentDisplay="RIGHT" layoutX="94.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleBtn_login" prefHeight="30.0" prefWidth="212.0" style="-fx-border-color: transparent; -fx-background-color: #F2CF19;" text="Login" textFill="#464545">
+                                       <font>
+                                          <Font name="Noto Sans Bold" size="13.0" />
+                                       </font></Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                        </VBox>
+                     </children></Pane>
+                  <Pane prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="Btn_sign" layoutX="298.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleBtn_login" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="Sign-up" textFill="#f2cf19" />
+                     </children></Pane>
+               </children></VBox>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
