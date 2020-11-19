@@ -28,8 +28,8 @@ public class PostController {
     }
 
     public void updatePost(Post post) {
+//        System.out.println(post);
         service.update(post);
-
     }
 
     public Collection<Post> getAllBySite(int id) {

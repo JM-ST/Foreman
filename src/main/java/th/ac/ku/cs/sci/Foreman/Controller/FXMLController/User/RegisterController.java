@@ -3,7 +3,6 @@ package th.ac.ku.cs.sci.Foreman.Controller.FXMLController.User;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import net.rgielen.fxweaver.core.FxmlView;
@@ -58,7 +57,7 @@ public class RegisterController {
 //        }catch (ValidationException e) {
 //
 //        }
-        controller.CreatedUser(new User(email.getText(),password.getText(),tel.getText(), User.Role.USER));
+        controller.createUser(new User(email.getText(),password.getText(),tel.getText(), User.Role.USER));
     }
 
 //    public void handleSignupBtn(javafx.event.ActionEvent event) {

@@ -19,6 +19,10 @@ public class UserService {
         repository.save(user);
     }
 
+    public void update(User user) {
+        repository.save(user);
+    }
+
     public User findById(int id) {
         return repository.findById(id).get();
     }

@@ -37,4 +37,9 @@ public class Comment {
     private String detail ;
 
 
+    public Comment(int userid, int postid, String detail) {
+        this.userid = userid;
+        this.postid = postid;
+        this.detail = detail;
+    }
 }

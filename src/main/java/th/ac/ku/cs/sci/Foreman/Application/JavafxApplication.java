@@ -1,14 +1,18 @@
-package th.ac.ku.cs.sci.Foreman;
+package th.ac.ku.cs.sci.Foreman.Application;
 
 import javafx.application.Application;
 import javafx.application.HostServices;
 import javafx.application.Platform;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
+import net.rgielen.fxweaver.core.FxWeaver;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContextInitializer;
-import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
+import th.ac.ku.cs.sci.Foreman.ForemanApplication;
+
 
 public class JavafxApplication extends Application {
 
@@ -16,12 +20,12 @@ public class JavafxApplication extends Application {
 
     @Override
     public void init() throws Exception {
-        ApplicationContextInitializer<GenericApplicationContext> initializer = genericApplicationContext -> {
+        ApplicationContextInitializer<GenericApplicationContext> initializer =
+                genericApplicationContext -> {
                 genericApplicationContext.registerBean(Application.class, () -> JavafxApplication.this);
-                genericApplicationContext.registerBean(Parameters.class, this::getParameters);
-                genericApplicationContext.registerBean(HostServices.class, this::getHostServices);
-        };
-
+                genericApplicationContext.registerBean(Parameters.class,this::getParameters);
+                genericApplicationContext.registerBean(HostServices.class,this::getHostServices);
+            };
         this.context = new SpringApplicationBuilder()
                 .sources(ForemanApplication.class)
                 .initializers(initializer)
@@ -29,8 +33,8 @@ public class JavafxApplication extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
-        this.context.publishEvent(new StageReadyEvent(stage));
+    public void start(Stage primaryStage) throws Exception {
+        context.publishEvent(new StageReadyEvent(primaryStage));
     }
 
     @Override
@@ -39,14 +43,4 @@ public class JavafxApplication extends Application {
         Platform.exit();
     }
 
-}
-
-class StageReadyEvent extends ApplicationEvent {
-    public Stage getStage() {
-        return Stage.class.cast(getSource());
-    }
-
-    public StageReadyEvent(Stage source) {
-        super(source);
-    }
 }

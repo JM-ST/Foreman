@@ -5,7 +5,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="th.ac.ku.cs.sci.Foreman.Controller.FXMLController.User.LoginController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="th.ac.ku.cs.sci.Foreman.Controller.FXMLController.User.LoginController">
    <children>
       <HBox prefHeight="600.0" prefWidth="800.0">
          <children>

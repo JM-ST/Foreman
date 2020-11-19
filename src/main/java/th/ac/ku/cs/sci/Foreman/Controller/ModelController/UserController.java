@@ -19,9 +19,13 @@ public class UserController {
         this.service = service;
     }
 
-    public void CreatedUser(User newuser){
-        newuser.setPassword(new BCryptPasswordEncoder().encode(newuser.getPassword()));
-        service.createUser(newuser);
+    public void createUser(User newUser){
+        newUser.setPassword(new BCryptPasswordEncoder().encode(newUser.getPassword()));
+        service.createUser(newUser);
+    }
+
+    public void updateUser(User user) {
+        service.update(user);
     }
 
     public void verifyUser(String email, String password){

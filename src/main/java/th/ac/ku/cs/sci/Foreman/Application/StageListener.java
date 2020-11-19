@@ -1,10 +1,9 @@
-package th.ac.ku.cs.sci.Foreman;
+package th.ac.ku.cs.sci.Foreman.Application;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationListener;
@@ -15,37 +14,36 @@ import java.io.IOException;
 import java.net.URL;
 
 @Component
-@Setter
 public class StageListener implements ApplicationListener<StageReadyEvent> {
 
-    private final String applicationTitle;
-    private Resource fxml ;
-    private final ApplicationContext applicationContext;
+    private final String applictionTitle ;
+    private final Resource fxml ;
+    private final ApplicationContext context;
 
-    StageListener(@Value("Foreman-report") String applicationTitle,
-                  @Value("classpath:templates/UserFXML/index.fxml") Resource resource,
-                  ApplicationContext ac) {
-        this.applicationTitle = applicationTitle ;
-        this.fxml = resource;
-        this.applicationContext = ac ;
+
+    StageListener(@Value("Foreman") String applictionTitle,
+                  @Value("classpath:templates/UserFXML/login.fxml") Resource fxml,
+                  ApplicationContext context) {
+        this.applictionTitle = applictionTitle;
+        this.fxml = fxml;
+        this.context = context;
     }
-
 
     @Override
     public void onApplicationEvent(StageReadyEvent stageReadyEvent) {
-        try{
+        try {
             Stage stage = stageReadyEvent.getStage();
             URL url = this.fxml.getURL();
             FXMLLoader fxmlLoader = new FXMLLoader(url);
-            fxmlLoader.setControllerFactory(applicationContext::getBean);
+            fxmlLoader.setControllerFactory(context::getBean);
             Parent root = fxmlLoader.load();
-            Scene scene = new Scene(root, 800, 600);
+            Scene scene = new Scene(root,800,600);
             stage.setScene(scene);
-            stage.setTitle(this.applicationTitle);
+            stage.setTitle(this.applictionTitle);
             stage.show();
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
-    }
 
+    }
 }

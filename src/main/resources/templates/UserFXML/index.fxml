@@ -18,7 +18,7 @@
                            <children>
                               <Pane prefHeight="150.0" prefWidth="200.0">
                                  <children>
-                                    <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="50.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fx:id="profile" fitHeight="100.0" fitWidth="100.0" layoutX="50.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
                                  </children>
                                  <VBox.margin>
                                     <Insets />

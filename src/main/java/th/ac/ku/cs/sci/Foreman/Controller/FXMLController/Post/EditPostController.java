@@ -41,7 +41,8 @@ public class EditPostController {
 
 
     public void handleBtnUpdate(ActionEvent event) {
-        Post record = new Post(post.getId(), UserSession.getUserInstance().getId(),topic.getText(),detail.getText(),"");
+        Post record = controller.getById(post.getId());
+        record.setDetail(detail.getText());
         controller.updatePost(record);
     }
 }

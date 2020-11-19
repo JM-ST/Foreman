@@ -8,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxmlView;
@@ -38,6 +40,9 @@ public class IndexUserController {
     @FXML
     private TableView<Site> table ;
 
+    @FXML
+    private ImageView profile ;
+
     @Autowired
     public IndexUserController(SiteController siteController,
                                @Value("classpath:templates/SiteFXML/createSite.fxml") Resource SITEFXML,
@@ -50,6 +55,8 @@ public class IndexUserController {
     }
 
     public void initialize() {
+//        Image image = new Image("https://image.flaticon.com/icons/png/512/806/806177.png");
+//        profile.setImage(image);
         loadSite();
     }
 

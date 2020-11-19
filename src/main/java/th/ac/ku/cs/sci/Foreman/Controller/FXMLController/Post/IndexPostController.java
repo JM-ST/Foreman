@@ -129,6 +129,7 @@ public class IndexPostController {
         CDATE.setCellValueFactory(new PropertyValueFactory<>("createdAt"));
         LUDATE.setCellValueFactory(new PropertyValueFactory<>("updateAt"));
 
+        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         table.getColumns().addAll(TOPIC, DETAIL, CDATE, LUDATE);
         table.getItems().addAll(postService.findBySite(site.getId()));
     }

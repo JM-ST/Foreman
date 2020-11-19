@@ -79,7 +79,10 @@
             <version>5.2.0.M3</version>
         </dependency>
 
-    </dependencies>
+
+
+
+	</dependencies>
 
 	<build>
 		<plugins>
