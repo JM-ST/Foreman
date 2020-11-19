@@ -1,5 +1,6 @@
 package th.ac.ku.cs.sci.Foreman.Controller.FXMLController.User;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +19,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
+import th.ac.ku.cs.sci.Foreman.Application.StageListener;
+import th.ac.ku.cs.sci.Foreman.Application.StageReadyEvent;
 import th.ac.ku.cs.sci.Foreman.Controller.FXMLController.Post.IndexPostController;
 import th.ac.ku.cs.sci.Foreman.Controller.ModelController.SiteController;
 import th.ac.ku.cs.sci.Foreman.Model.Site;
@@ -109,7 +112,6 @@ public class IndexUserController {
     @FXML
     public void handleBtnExits(ActionEvent event) {
 //        UserSession.getInstance(UserSession.getUserInstance()).clearUserSession();
-        System.exit(0);
     }
 
     private void tableRefresh() {

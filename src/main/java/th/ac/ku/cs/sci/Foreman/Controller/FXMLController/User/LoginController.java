@@ -16,9 +16,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
-import th.ac.ku.cs.sci.Foreman.Application.StageReadyEvent;
 import th.ac.ku.cs.sci.Foreman.Controller.ModelController.UserController;
 import th.ac.ku.cs.sci.Foreman.Session.UserSession;
+
+import java.io.IOException;
 
 
 @Component
@@ -28,6 +29,7 @@ public class LoginController {
     private final UserController controller ;
     private final ApplicationContext ac ;
     private final Resource INDEXFXML ;
+    private final Resource SIGNUPFXML ;
 
     @FXML
     private TextField email ;
@@ -37,16 +39,34 @@ public class LoginController {
 
 
     public LoginController(UserController controller, ApplicationContext ac,
-                           @Value("classpath:templates/UserFXML/index.fxml") Resource indexfxml) {
+                           @Value("classpath:templates/UserFXML/index.fxml") Resource indexfxml,
+                           @Value("classpath:templates/UserFXML/register.fxml") Resource signupfxml) {
         this.controller = controller;
         this.ac = ac;
         INDEXFXML = indexfxml;
+        SIGNUPFXML = signupfxml;
     }
 
 
     @FXML
     public void initialize() {
 
+    }
+
+    @FXML
+    public void handleBtnSignUp(ActionEvent event) {
+        try {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = null;
+        fxmlLoader = new FXMLLoader(SIGNUPFXML.getURL());
+        fxmlLoader.setControllerFactory(ac::getBean);
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root,800,600);
+        stage.setScene(scene);
+        stage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -64,22 +84,16 @@ public class LoginController {
             stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(scene);
             stage.showAndWait();
-//            StageReadyEvent stage = new StageReadyEvent(stageReadyEvent.getStage());
-//            ac.publishEvent(stageReadyEvent);
-
-//            stage.setScene(scene);
-//            stage.show();
-//            stageReadyEvent.getStage().show();
-//            Stage stage = (Stage) Stage.getWindows().stream().filter(Window::isShowing);
-
         }catch (Exception e) {
-            e.getMessage();
-//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//            alert.setTitle("Login Failed");
-//            alert.setHeaderText(null);
-//            alert.setContentText("Wrong username or password.");
-//            alert.showAndWait();
+//            e.getMessage();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Login Failed");
+            alert.setHeaderText(null);
+            alert.setContentText("Wrong username or password.");
+            alert.showAndWait();
         }
+
+
     }
 
 
