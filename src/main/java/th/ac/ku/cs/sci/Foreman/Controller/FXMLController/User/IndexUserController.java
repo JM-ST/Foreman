@@ -1,6 +1,5 @@
 package th.ac.ku.cs.sci.Foreman.Controller.FXMLController.User;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,7 +28,6 @@ import th.ac.ku.cs.sci.Foreman.Model.User;
 import th.ac.ku.cs.sci.Foreman.Session.UserSession;
 
 
-import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
 
@@ -42,6 +40,7 @@ public class IndexUserController {
     private final Resource MANGERUSERFXML ;
     private final Resource SITEFXML;
     private final Resource POSTFXML;
+    private final Resource LOGIN;
     private final ApplicationContext ac ;
 
     @FXML
@@ -58,11 +57,13 @@ public class IndexUserController {
                                @Value("classpath:templates/UserFXML/managerUser.fxml") Resource MANAGERUSERFXML,
                                @Value("classpath:templates/SiteFXML/createSite.fxml") Resource SITEFXML,
                                @Value("classpath:templates/PostFXML/index.fxml") Resource POSTFXML,
+                               @Value("classpath:templates/UserFXML/login.fxml") Resource LOGIN,
                                ApplicationContext ac) {
         this.siteController = siteController;
         this.MANGERUSERFXML = MANAGERUSERFXML;
         this.SITEFXML = SITEFXML;
         this.POSTFXML = POSTFXML;
+        this.LOGIN = LOGIN;
         this.ac = ac ;
     }
 
@@ -99,10 +100,10 @@ public class IndexUserController {
     }
 
     @FXML
-    public void handleBtnExits(ActionEvent event) {
+    public void handleBtnExits(ActionEvent event) throws IOException {
         UserSession.clearUserSession();
-        Stage stage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
-        stage.close();
+        StageCaller call = new StageCaller(LOGIN,ac);
+        call.changeScene((Stage) ((Node)event.getTarget()).getScene().getWindow(),"Login");
     }
 
     private void tableRefresh() {

@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -65,8 +66,8 @@ public class LoginController {
     public void handleBtn_login(ActionEvent event) throws IOException{
         StageCaller call = new StageCaller(INDEXFXML,ac);
         if (controller.verifyUser(email.getText(),password.getText())){
-            call.getStage("Welcome: "+UserSession.getUserInstance().getName()).showAndWait();
-            UserSession.clearUserSession();
+            call.changeScene((Stage) ((Node)event.getTarget()).getScene().getWindow(),
+                    "Welcome: "+UserSession.getUserInstance().getName()).show();
         }else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Login Failed");

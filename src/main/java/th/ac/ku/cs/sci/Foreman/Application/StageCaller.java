@@ -31,6 +31,14 @@ public class StageCaller {
         return stage;
     }
 
+    public Stage changeScene(Stage stage,String titleStage) throws IOException {
+        FXMLLoader loader = new FXMLLoader(resource.getURL());
+        loader.setControllerFactory(applicationContext::getBean);
+        stage.setTitle(titleStage);
+        stage.setScene(new Scene((Parent) loader.load()));
+        return stage ;
+    }
+
     public ApplicationContext getApplicationContext() {
         return  applicationContext;
     }
