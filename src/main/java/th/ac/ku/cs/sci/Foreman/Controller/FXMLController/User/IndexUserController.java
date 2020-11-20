@@ -4,12 +4,14 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -27,16 +29,17 @@ import th.ac.ku.cs.sci.Foreman.Model.User;
 import th.ac.ku.cs.sci.Foreman.Session.UserSession;
 
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
 
 
 @Controller
-@FxmlView("index.fxml")
+@FxmlView
 public class IndexUserController {
 
-    private final Resource MANGERUSERFXML ;
     private final SiteController siteController;
+    private final Resource MANGERUSERFXML ;
     private final Resource SITEFXML;
     private final Resource POSTFXML;
     private final ApplicationContext ac ;
@@ -63,7 +66,8 @@ public class IndexUserController {
         this.ac = ac ;
     }
 
-    public void initialize() {
+    public void initialize() throws IOException {
+        profile.setImage(new Image("/public/placeholder.jpg"));
         loadSite();
     }
 
@@ -97,7 +101,8 @@ public class IndexUserController {
     @FXML
     public void handleBtnExits(ActionEvent event) {
         UserSession.clearUserSession();
-        Platform.exit();
+        Stage stage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
+        stage.close();
     }
 
     private void tableRefresh() {

@@ -65,7 +65,7 @@ public class LoginController {
     public void handleBtn_login(ActionEvent event) throws IOException{
         StageCaller call = new StageCaller(INDEXFXML,ac);
         if (controller.verifyUser(email.getText(),password.getText())){
-            call.getStage("Welcome"+UserSession.getUserInstance().getName()).showAndWait();
+            call.getStage("Welcome: "+UserSession.getUserInstance().getName()).showAndWait();
             UserSession.clearUserSession();
         }else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

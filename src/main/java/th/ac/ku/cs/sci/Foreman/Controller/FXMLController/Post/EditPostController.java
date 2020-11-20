@@ -2,8 +2,10 @@ package th.ac.ku.cs.sci.Foreman.Controller.FXMLController.Post;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,5 +46,7 @@ public class EditPostController {
         Post record = controller.getById(post.getId());
         record.setDetail(detail.getText());
         controller.updatePost(record);
+        Stage stage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
+        stage.close();
     }
 }

@@ -2,8 +2,10 @@ package th.ac.ku.cs.sci.Foreman.Controller.FXMLController.User;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.stereotype.Controller;
 import th.ac.ku.cs.sci.Foreman.Controller.ModelController.UserController;
@@ -31,5 +33,7 @@ public class CreateUserController {
 
     public void handleBtnSubmit(ActionEvent event) {
         controller.createUser(new User(email.getText(),firstname.getText()+" "+lastname.getText(),password.getText(),tel.getText(), User.Role.USER));
+        Stage stage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
+        stage.close();
     }
 }

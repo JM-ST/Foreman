@@ -2,7 +2,9 @@ package th.ac.ku.cs.sci.Foreman.Controller.FXMLController.Comment;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.TextArea;
+import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,6 +39,8 @@ public class CreateCommentController {
     public void handleBtnCreate(ActionEvent event) {
         Comment record = new Comment(UserSession.getUserInstance().getId(),postid,comment.getText());
         controller.createComment(record);
+        Stage stage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
+        stage.close();
     }
 
 }

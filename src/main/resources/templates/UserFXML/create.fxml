@@ -4,46 +4,99 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="th.ac.ku.cs.sci.Foreman.Controller.FXMLController.User.CreateUserController">
+<AnchorPane prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="th.ac.ku.cs.sci.Foreman.Controller.FXMLController.User.CreateUserController">
    <children>
-      <VBox prefHeight="400.0" prefWidth="400.0">
+      <VBox prefHeight="500.0" prefWidth="400.0">
          <children>
-            <TextField fx:id="email">
-               <VBox.margin>
-                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-               </VBox.margin>
-            </TextField>
-            <HBox prefHeight="50.0" prefWidth="370.0">
+            <VBox prefHeight="100.0" prefWidth="100.0">
                <children>
-                  <TextField fx:id="firstname">
-                     <HBox.margin>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                     </HBox.margin>
-                  </TextField>
-                  <TextField fx:id="lastname">
-                     <HBox.margin>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                     </HBox.margin>
+                  <Label text="E-mail :">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="35.0" right="35.0" top="35.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="email">
+                     <VBox.margin>
+                        <Insets bottom="35.0" left="35.0" right="35.0" />
+                     </VBox.margin>
                   </TextField>
                </children>
+            </VBox>
+            <HBox prefHeight="50.0" prefWidth="400.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="150.0">
+                     <children>
+                        <Label text="Firstname">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin></Label>
+                        <TextField fx:id="firstname" />
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="35.0" left="35.0" right="35.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="150.0">
+                     <children>
+                        <Label text="Lastname">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin></Label>
+                        <TextField fx:id="lastname">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin></TextField>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="35.0" right="35.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
                <VBox.margin>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                  <Insets />
                </VBox.margin>
             </HBox>
-            <TextField fx:id="tel">
-               <VBox.margin>
-                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-               </VBox.margin>
-            </TextField>
-            <PasswordField fx:id="password">
-               <VBox.margin>
-                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-               </VBox.margin>
-            </PasswordField>
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="100.0">
+               <children>
+                  <Label text="Telephone:">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="35.0" right="35.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="tel">
+                     <VBox.margin>
+                        <Insets bottom="30.0" left="35.0" right="35.0" />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Label text="Password:">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="35.0" right="35.0" />
+                     </VBox.margin>
+                  </Label>
+                  <PasswordField fx:id="password">
+                     <VBox.margin>
+                        <Insets bottom="30.0" left="35.0" right="35.0" />
+                     </VBox.margin>
+                  </PasswordField>
+                  <Label layoutX="45.0" layoutY="10.0" text="Password confirm:">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="35.0" />
+                     </VBox.margin>
+                  </Label>
+                  <PasswordField fx:id="cpassword" layoutX="45.0" layoutY="36.0">
+                     <VBox.margin>
+                        <Insets left="35.0" right="35.0" />
+                     </VBox.margin>
+                  </PasswordField>
+               </children>
+            </VBox>
             <Button mnemonicParsing="false" onAction="#handleBtnSubmit" text="Submit">
                <VBox.margin>
-                  <Insets left="305.0" />
+                  <Insets left="305.0" top="30.0" />
                </VBox.margin>
             </Button>
          </children>

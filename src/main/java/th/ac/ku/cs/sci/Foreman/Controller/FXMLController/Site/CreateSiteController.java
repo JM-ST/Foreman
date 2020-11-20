@@ -2,7 +2,9 @@ package th.ac.ku.cs.sci.Foreman.Controller.FXMLController.Site;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,6 +32,8 @@ public class CreateSiteController {
     @FXML
     public void handleBtnCreateSite(ActionEvent actionEvent) {
         controller.createSite(name.getText());
+        Stage stage = (Stage) ((Node) actionEvent.getTarget()).getScene().getWindow();
+        stage.close();
     }
 
 }
