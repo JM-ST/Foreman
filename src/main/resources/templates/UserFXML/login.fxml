@@ -60,7 +60,7 @@
                      </children></Pane>
                   <Pane prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="Btn_sign" layoutX="298.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleBtnSignUp" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="Sign-up" textFill="#f2cf19" />
+                        <Button fx:id="signup" layoutX="298.0" layoutY="37.0" mnemonicParsing="false" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="Sign-up" textFill="#f2cf19" />
                      </children></Pane>
                </children></VBox>
          </children>

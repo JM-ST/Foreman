@@ -57,7 +57,7 @@ public class RegisterController {
 //        }catch (ValidationException e) {
 //
 //        }
-        controller.createUser(new User(email.getText(),password.getText(),tel.getText(), User.Role.USER));
+//        controller.createUser(new User(email.getText(),password.getText(),tel.getText(), User.Role.USER));
     }
 
 //    public void handleSignupBtn(javafx.event.ActionEvent event) {

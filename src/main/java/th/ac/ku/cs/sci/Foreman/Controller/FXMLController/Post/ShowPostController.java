@@ -1,14 +1,8 @@
 package th.ac.ku.cs.sci.Foreman.Controller.FXMLController.Post;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import lombok.Setter;
 import net.rgielen.fxweaver.core.FxmlView;
@@ -17,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
+import th.ac.ku.cs.sci.Foreman.Application.StageCaller;
 import th.ac.ku.cs.sci.Foreman.Controller.FXMLController.Comment.CreateCommentController;
 import th.ac.ku.cs.sci.Foreman.Controller.ModelController.CommentController;
 import th.ac.ku.cs.sci.Foreman.Controller.ModelController.PostController;
@@ -24,8 +19,6 @@ import th.ac.ku.cs.sci.Foreman.Model.Comment;
 import th.ac.ku.cs.sci.Foreman.Model.Post;
 
 import java.io.IOException;
-import java.util.Collection;
-import java.util.List;
 
 
 @Controller
@@ -87,20 +80,13 @@ public class ShowPostController {
 
     }
 
-    public void handleBtnComment() {
-        try {
-            Stage stage = new Stage();
-            FXMLLoader loader = new FXMLLoader(COMMENTFXML.getURL());
-            loader.setControllerFactory(ac::getBean);
-            CreateCommentController controller = ac.getBean(CreateCommentController.class);
-            controller.setPostid(post.getId());
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("COMMENT");
-            stage.setScene(new Scene((Parent) loader.load()));
-            stage.showAndWait();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+    public void handleBtnComment() throws IOException {
+        StageCaller call = new StageCaller(COMMENTFXML,ac);
+        CreateCommentController controller = call.getApplicationContext().getBean(CreateCommentController.class);
+        controller.setPostid(post.getId());
+        Stage stage = call.getStage("Comment on "+post.getTopic());
+        stage.showAndWait();
+
         refreshComment();
     }
 

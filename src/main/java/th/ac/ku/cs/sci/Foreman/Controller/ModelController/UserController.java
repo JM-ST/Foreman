@@ -1,5 +1,6 @@
 package th.ac.ku.cs.sci.Foreman.Controller.ModelController;
 
+import jdk.jshell.spi.ExecutionControl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -7,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import th.ac.ku.cs.sci.Foreman.Model.User;
 import th.ac.ku.cs.sci.Foreman.Service.UserService;
 import th.ac.ku.cs.sci.Foreman.Session.UserSession;
+
+import java.nio.file.attribute.UserPrincipalNotFoundException;
+import java.util.Collection;
 
 @Controller
 @Component
@@ -28,12 +32,17 @@ public class UserController {
         service.update(user);
     }
 
-    public void verifyUser(String email, String password){
+    public Boolean verifyUser(String email, String password){
         User user = service.findByEmail(email);
         if (new BCryptPasswordEncoder().matches(password,user.getPassword())) {
             UserSession.getInstance(user);
+            return true;
         }
+        return false;
     }
 
 
+    public Collection<? extends User> getAll() {
+        return service.getAllUser();
+    }
 }

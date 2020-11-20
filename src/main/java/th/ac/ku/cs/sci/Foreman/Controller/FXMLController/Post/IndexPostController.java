@@ -1,22 +1,18 @@
 package th.ac.ku.cs.sci.Foreman.Controller.FXMLController.Post;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
+import th.ac.ku.cs.sci.Foreman.Application.StageCaller;
 import th.ac.ku.cs.sci.Foreman.Model.Post;
 import th.ac.ku.cs.sci.Foreman.Model.Site;
 import th.ac.ku.cs.sci.Foreman.Service.PostService;
@@ -68,53 +64,31 @@ public class IndexPostController {
         loadPost();
     }
 
-    public void handleBtnShow() {
-        try {
-            Stage stage = new Stage();
-            FXMLLoader loader = new FXMLLoader(SHOWPOSTFXML.getURL());
-            loader.setControllerFactory(ac::getBean);
-            ShowPostController controller = ac.getBean(ShowPostController.class);
-            controller.setPost(table.getSelectionModel().getSelectedItem());
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("SHOW");
-            stage.setScene(new Scene((Parent) loader.load()));
-            stage.showAndWait();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void handleBtnShow() throws IOException {
+        StageCaller call = new StageCaller(SHOWPOSTFXML,ac);
+        ShowPostController controller = call.getApplicationContext().getBean(ShowPostController.class);
+        controller.setPost(table.getSelectionModel().getSelectedItem());
+        call.getStage("SHOW :"+table.getSelectionModel().getSelectedItem().getTopic()).showAndWait();
+
         tableRefresh();
     }
 
-    public void handleBtnCreate() {
-        try {
-            Stage stage = new Stage();
-            FXMLLoader loader = new FXMLLoader(CREATEPOSTFXML.getURL());
-            loader.setControllerFactory(ac::getBean);
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("CREATE");
-            stage.setScene(new Scene((Parent) loader.load()));
-            stage.showAndWait();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void handleBtnCreate() throws IOException {
+        StageCaller call = new StageCaller(CREATEPOSTFXML,ac);
+        CreatePostController controller = call.getApplicationContext().getBean(CreatePostController.class);
+        controller.setSiteId(site.getId());
+        call.getStage("CREATE").showAndWait();
+
         tableRefresh();
     }
 
-    public void handleBtnEdit() {
-        try {
-            Stage stage = new Stage();
-            FXMLLoader loader = new FXMLLoader(EDITPOSTFXML.getURL());
-            loader.setControllerFactory(ac::getBean);
-            EditPostController controller = ac.getBean(EditPostController.class);
-            controller.setPost(table.getSelectionModel().getSelectedItem());
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("EDIT");
-            stage.setScene(new Scene((Parent) loader.load()));
-            stage.showAndWait();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        tableRefresh();
+    public void handleBtnEdit() throws IOException {
+        StageCaller call = new StageCaller(EDITPOSTFXML,ac);
+        EditPostController controller = call.getApplicationContext().getBean(EditPostController.class);
+        controller.setPost(table.getSelectionModel().getSelectedItem());
+        call.getStage("EDIT : "+table.getSelectionModel().getSelectedItem().getTopic()).showAndWait();
+
+        tableRefresh();;
     }
 
     private void loadPost() {

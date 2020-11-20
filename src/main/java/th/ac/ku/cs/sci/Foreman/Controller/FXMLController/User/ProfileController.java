@@ -32,10 +32,9 @@ public class ProfileController {
     }
 
     public void initialize() {
-        controller.verifyUser("admin@example.com","password");
         name.setText(UserSession.getUserInstance().getName());
         mail.setText(UserSession.getUserInstance().getEmail());
-        tel.setText(UserSession.getUserInstance().getTels());
+        tel.setText(UserSession.getUserInstance().getTel());
     }
 
     public void handleBtnBack(){

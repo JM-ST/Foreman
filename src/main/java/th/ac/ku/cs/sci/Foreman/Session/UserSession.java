@@ -18,17 +18,8 @@ public final class UserSession {
         return instance ;
     }
 
-    public void clearUserSession() {
-        user = null;
-    }
-
-    @Override
-    public String toString() {
-        return "UserSession{" +
-                "id=" + user.getId() +
-                ", userName='" + user.getName() + '\'' +
-                ", role='" + user.getRole() + '\'' +
-                '}';
+    public static void clearUserSession() {
+        instance = null ;
     }
 
     public static User getUserInstance() {
@@ -39,11 +30,4 @@ public final class UserSession {
         return user.getId();
     }
 
-    public String getUserName() {
-        return user.getName();
-    }
-
-    public String getRole() {
-        return user.getRole().toString();
-    }
 }

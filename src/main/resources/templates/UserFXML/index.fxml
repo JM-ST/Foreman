@@ -28,6 +28,14 @@
                                  <children>
                                     <VBox prefHeight="400.0" prefWidth="200.0">
                                        <children>
+                                          <Button fx:id="userManagerBtn" layoutX="45.0" layoutY="45.0" mnemonicParsing="false" onAction="#handleBtnUserManager" style="-fx-border-color: white; -fx-border-width: 0px 0px 3px 0px; -fx-background-color: transparent; -fx-text-fill: white;" text="UserManager">
+                                             <font>
+                                                <Font name="Noto Sans Bold" size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="35.0" left="35.0" right="35.0" top="35.0" />
+                                             </VBox.margin>
+                                          </Button>
                                           <Button layoutX="45.0" layoutY="146.0" mnemonicParsing="false" style="-fx-border-color: white; -fx-border-width: 0px 0px 3px 0px; -fx-background-color: transparent; -fx-text-fill: white;" text="Profile">
                                              <font>
                                                 <Font name="Noto Sans Bold" size="14.0" />
@@ -36,7 +44,7 @@
                                                 <Insets bottom="35.0" left="35.0" right="35.0" top="35.0" />
                                              </VBox.margin>
                                           </Button>
-                                          <Button mnemonicParsing="false" onAction="#handleBtnCreateSite" style="-fx-border-color: white; -fx-border-width: 0px 0px 3px 0px; -fx-background-color: transparent; -fx-text-fill: white;" text="CreateSite">
+                                          <Button fx:id="createSiteBtn" mnemonicParsing="false" onAction="#handleBtnCreateSite" style="-fx-border-color: white; -fx-border-width: 0px 0px 3px 0px; -fx-background-color: transparent; -fx-text-fill: white;" text="CreateSite">
                                              <VBox.margin>
                                                 <Insets bottom="35.0" left="35.0" right="35.0" top="35.0" />
                                              </VBox.margin>

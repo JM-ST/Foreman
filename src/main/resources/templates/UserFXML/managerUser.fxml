@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="th.ac.ku.cs.sci.Foreman.Controller.FXMLController.User.ManagerUserController">
+   <children>
+      <HBox prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="600.0" prefWidth="200.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handleBtnCreate" text="Create">
+                           <VBox.margin>
+                              <Insets bottom="50.0" left="65.0" top="50.0" />
+                           </VBox.margin></Button>
+                        <Button mnemonicParsing="false" onAction="#handleBtnEdit" text="Edit">
+                           <VBox.margin>
+                              <Insets bottom="50.0" left="65.0" right="50.0" top="50.0" />
+                           </VBox.margin></Button>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+            <VBox prefHeight="600.0" prefWidth="600.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="search" promptText="search" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="200.0" right="150.0" top="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <TableView fx:id="table" prefHeight="600.0" prefWidth="600.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

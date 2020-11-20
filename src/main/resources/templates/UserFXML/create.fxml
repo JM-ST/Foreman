@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="th.ac.ku.cs.sci.Foreman.Controller.FXMLController.User.CreateUserController">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="400.0">
+         <children>
+            <TextField fx:id="email">
+               <VBox.margin>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </VBox.margin>
+            </TextField>
+            <HBox prefHeight="50.0" prefWidth="370.0">
+               <children>
+                  <TextField fx:id="firstname">
+                     <HBox.margin>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField fx:id="lastname">
+                     <HBox.margin>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </VBox.margin>
+            </HBox>
+            <TextField fx:id="tel">
+               <VBox.margin>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </VBox.margin>
+            </TextField>
+            <PasswordField fx:id="password">
+               <VBox.margin>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </VBox.margin>
+            </PasswordField>
+            <Button mnemonicParsing="false" onAction="#handleBtnSubmit" text="Submit">
+               <VBox.margin>
+                  <Insets left="305.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
