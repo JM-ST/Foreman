@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/SA
+    url: jdbc:mysql://localhost:3306/foreman
     username: root
-    password: secret
+    password:
 
   jpa:
     show-sql: true

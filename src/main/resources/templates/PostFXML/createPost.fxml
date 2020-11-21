@@ -14,11 +14,21 @@
                      <HBox.margin>
                         <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
                      </HBox.margin></TextField>
+                  <Label text="Report Name">
+                     <HBox.margin>
+                        <Insets left="-200.0" top="25.0" />
+                     </HBox.margin>
+                  </Label>
                </children>
             </HBox>
-            <TextArea fx:id="detail" prefHeight="314.0" prefWidth="760.0" promptText="Report...">
+            <Label text="Report Detail  :">
                <VBox.margin>
-                  <Insets bottom="50.0" left="50.0" right="50.0" top="30.0" />
+                  <Insets left="50.0" />
+               </VBox.margin>
+            </Label>
+            <TextArea fx:id="detail" prefHeight="314.0" prefWidth="700.0" promptText="Report...">
+               <VBox.margin>
+                  <Insets bottom="50.0" left="50.0" right="50.0" top="10.0" />
                </VBox.margin></TextArea>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>

@@ -36,7 +36,7 @@
                <children>
                   <VBox fx:id="email" prefHeight="600.0" prefWidth="600.0">
                      <children>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
+                        <HBox prefHeight="50.0" prefWidth="200.0">
                            <children>
                               <Label text="Name :">
                                  <font>
@@ -52,10 +52,10 @@
                               </TextField>
                            </children>
                            <VBox.margin>
-                              <Insets left="100.0" top="35.0" />
+                              <Insets left="100.0" top="100.0" />
                            </VBox.margin>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
+                        <HBox prefHeight="50.0" prefWidth="200.0">
                            <children>
                               <Label text="E-mail :">
                                  <font>

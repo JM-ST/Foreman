@@ -8,6 +8,30 @@
    <children>
       <HBox prefHeight="600.0" prefWidth="800.0">
          <children>
+            <VBox prefHeight="600.0" prefWidth="600.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="search" promptText="search">
+                           <HBox.margin>
+                              <Insets bottom="-3.0" left="-50.0" />
+                           </HBox.margin></TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="200.0" right="150.0" top="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Label text="Find a Foreman : ">
+                     <VBox.margin>
+                        <Insets left="55.0" top="-20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TableView fx:id="table" prefHeight="600.0" prefWidth="600.0">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin></TableView>
+               </children>
+            </VBox>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
                   <VBox prefHeight="600.0" prefWidth="200.0">
@@ -24,19 +48,6 @@
                   </VBox>
                </children>
             </Pane>
-            <VBox prefHeight="600.0" prefWidth="600.0">
-               <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <TextField fx:id="search" promptText="search" />
-                     </children>
-                     <VBox.margin>
-                        <Insets left="200.0" right="150.0" top="30.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <TableView fx:id="table" prefHeight="600.0" prefWidth="600.0" />
-               </children>
-            </VBox>
          </children>
       </HBox>
    </children>

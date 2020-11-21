@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -80,7 +81,7 @@ public class IndexPostController {
         loadPost();
     }
 
-    public void handleBtnDetail(ActionEvent event) throws IOException {
+    public void handleBtnDetail(MouseEvent event) throws IOException {
         StageCaller call = new StageCaller(SITEDETAILFXML,ac);
         DetailSiteController controller = call.getApplicationContext().getBean(DetailSiteController.class);
         controller.setSite(site);

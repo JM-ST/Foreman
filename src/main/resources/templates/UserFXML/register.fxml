@@ -41,6 +41,14 @@
                                                 <Font name="Noto Sans Regular" size="13.0" />
                                             </font>
                                         </TextField>
+                              <TextField fx:id="name" layoutX="40.0" layoutY="40.0" promptText="Name" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-prompt-text-fill: white; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px; -fx-text-inner-color: white;">
+                                 <font>
+                                    <Font name="Noto Sans Regular" size="13.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="30.0" right="30.0" top="30.0" />
+                                 </VBox.margin>
+                              </TextField>
                                         <PasswordField fx:id="password" promptText="Password" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-prompt-text-fill: white; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px; -fx-text-inner-color: white;">
                                             <VBox.margin>
                                                 <Insets left="30.0" right="30.0" top="30.0" />

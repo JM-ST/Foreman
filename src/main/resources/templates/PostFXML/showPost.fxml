@@ -11,9 +11,19 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
+                  <Label text="Report Name :">
+                     <HBox.margin>
+                        <Insets left="50.0" top="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Report Detail :">
+                     <HBox.margin>
+                        <Insets left="-75.0" top="110.0" />
+                     </HBox.margin>
+                  </Label>
                   <TextField fx:id="topic">
                      <HBox.margin>
-                        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                        <Insets bottom="50.0" left="-80.0" right="50.0" top="50.0" />
                      </HBox.margin>
                      <font>
                         <Font name="Noto Sans Regular" size="16.0" />
