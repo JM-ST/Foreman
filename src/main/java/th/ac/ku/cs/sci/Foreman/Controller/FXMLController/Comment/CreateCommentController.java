@@ -37,7 +37,8 @@ public class CreateCommentController {
     }
 
     public void handleBtnCreate(ActionEvent event) {
-        Comment record = new Comment(UserSession.getUserInstance().getId(),postid,comment.getText());
+        String commentrecord = UserSession.getUserInstance().getName()+" : \n"+comment.getText();
+        Comment record = new Comment(UserSession.getUserInstance().getId(),postid,commentrecord);
         controller.createComment(record);
         Stage stage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
         stage.close();
