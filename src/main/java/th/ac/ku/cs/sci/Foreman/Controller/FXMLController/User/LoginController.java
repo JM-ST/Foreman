@@ -3,30 +3,22 @@ package th.ac.ku.cs.sci.Foreman.Controller.FXMLController.User;
 import javafx.event.ActionEvent;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import net.rgielen.fxweaver.core.FxControllerAndView;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 import th.ac.ku.cs.sci.Foreman.Application.StageCaller;
-import th.ac.ku.cs.sci.Foreman.Application.StageReadyEvent;
 import th.ac.ku.cs.sci.Foreman.Controller.ModelController.UserController;
 import th.ac.ku.cs.sci.Foreman.Session.UserSession;
 
 import java.io.IOException;
-import java.nio.file.attribute.UserPrincipalNotFoundException;
 
 
 @Component
@@ -37,15 +29,12 @@ public class LoginController {
     private final ApplicationContext ac ;
     private final Resource INDEXFXML ;
 
-
     @FXML
     private TextField email ;
-
     @FXML
     private Button signup ;
     @FXML
     private PasswordField password ;
-
 
     public LoginController(UserController controller,
                            ApplicationContext ac,
@@ -55,7 +44,6 @@ public class LoginController {
         this.ac = ac;
         INDEXFXML = indexfxml;
     }
-
 
     @FXML
     public void initialize() {

@@ -16,11 +16,12 @@
                                 <Font size="16.0" />
                             </font>
                         </Label>
-                        <Label fx:id="status" layoutX="280.0" layoutY="31.0">
+                        <Label fx:id="status" layoutX="198.0" layoutY="31.0">
                             <font>
                                 <Font name="Noto Sans Regular" size="16.0" />
                             </font>
                         </Label>
+                  <Button layoutX="479.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleBtnDetail" text="Detail" />
                     </children>
                 </Pane>
                 <TableView fx:id="table" prefHeight="400.0" prefWidth="600.0" />

@@ -7,7 +7,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.Resource;
-import th.ac.ku.cs.sci.Foreman.Controller.FXMLController.Post.EditPostController;
 
 import java.io.IOException;
 

@@ -1,11 +1,11 @@
 package th.ac.ku.cs.sci.Foreman.Controller.FXMLController.Post;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,6 +13,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import th.ac.ku.cs.sci.Foreman.Application.StageCaller;
+import th.ac.ku.cs.sci.Foreman.Controller.FXMLController.Site.DetailSiteController;
 import th.ac.ku.cs.sci.Foreman.Model.Post;
 import th.ac.ku.cs.sci.Foreman.Model.Site;
 import th.ac.ku.cs.sci.Foreman.Service.PostService;
@@ -25,6 +26,7 @@ import java.sql.Date;
 @FxmlView("index.fxml")
 public class IndexPostController {
 
+    private final Resource SITEDETAILFXML ;
     private final Resource CREATEPOSTFXML;
     private final Resource EDITPOSTFXML;
     private final Resource SHOWPOSTFXML;
@@ -41,17 +43,19 @@ public class IndexPostController {
 
 
     @Autowired
-    public IndexPostController(@Value("classpath:templates/PostFXML/createPost.fxml") Resource CREATEPOSTFXML,
+    public IndexPostController(@Value("classpath:templates/SiteFXML/detailSite.fxml") Resource SITEDETAILFXML,
+                               @Value("classpath:templates/PostFXML/createPost.fxml") Resource CREATEPOSTFXML,
                                @Value("classpath:templates/PostFXML/editPost.fxml") Resource EDITPOSTFXML,
                                @Value("classpath:templates/PostFXML/showPost.fxml") Resource SHOWPOSTFXML,
                                ApplicationContext ac,
                                SiteService siteService, PostService postService) {
+        this.SITEDETAILFXML = SITEDETAILFXML;
         this.CREATEPOSTFXML = CREATEPOSTFXML;
         this.EDITPOSTFXML = EDITPOSTFXML;
         this.SHOWPOSTFXML = SHOWPOSTFXML;
-        this.ac = ac ;
         this.siteService = siteService;
         this.postService = postService;
+        this.ac = ac ;
     }
 
     public void setStie(Site site) {
@@ -61,14 +65,24 @@ public class IndexPostController {
     public void initialize() {
         siteName.setText("SITE: "+site.getName());
         status.setText("STATUS: "+ site.getStatus().toString());
+
         loadPost();
+    }
+
+    public void handleBtnDetail(ActionEvent event) throws IOException {
+        StageCaller call = new StageCaller(SITEDETAILFXML,ac);
+        DetailSiteController controller = call.getApplicationContext().getBean(DetailSiteController.class);
+        controller.setSite(site);
+        call.getStage("Detail : "+site.getName()).showAndWait();
+
+        tableRefresh();
     }
 
     public void handleBtnShow() throws IOException {
         StageCaller call = new StageCaller(SHOWPOSTFXML,ac);
         ShowPostController controller = call.getApplicationContext().getBean(ShowPostController.class);
         controller.setPost(table.getSelectionModel().getSelectedItem());
-        call.getStage("SHOW :"+table.getSelectionModel().getSelectedItem().getTopic()).showAndWait();
+        call.getStage("SHOW : "+table.getSelectionModel().getSelectedItem().getTopic()).showAndWait();
 
         tableRefresh();
     }
@@ -113,5 +127,4 @@ public class IndexPostController {
         table.getColumns().clear();
         loadPost();
     }
-
 }

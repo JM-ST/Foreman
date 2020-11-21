@@ -2,7 +2,7 @@ package th.ac.ku.cs.sci.Foreman.Service;
 
 import org.springframework.stereotype.Service;
 import th.ac.ku.cs.sci.Foreman.Model.Site;
-import th.ac.ku.cs.sci.Foreman.data.SiteRepository;
+import th.ac.ku.cs.sci.Foreman.Data.SiteRepository;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -21,6 +21,10 @@ public class SiteService {
         repository.save(site);
     }
 
+    public void updateSite(Site site) {
+        repository.save(site);
+    }
+
     public void deleteSite(int id) {
         repository.deleteById(id);
     }
@@ -36,6 +40,10 @@ public class SiteService {
             siteNames.add(allSite.get(i).getName());
         }
         return siteNames;
+    }
+
+    public Site findById(int id) {
+        return repository.findById(id).get();
     }
 
     public Site findByName(String name) {

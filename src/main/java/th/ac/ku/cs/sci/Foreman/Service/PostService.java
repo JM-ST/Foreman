@@ -2,7 +2,7 @@ package th.ac.ku.cs.sci.Foreman.Service;
 
 import org.springframework.stereotype.Service;
 import th.ac.ku.cs.sci.Foreman.Model.Post;
-import th.ac.ku.cs.sci.Foreman.data.PostRepository;
+import th.ac.ku.cs.sci.Foreman.Data.PostRepository;
 
 import java.util.Collection;
 

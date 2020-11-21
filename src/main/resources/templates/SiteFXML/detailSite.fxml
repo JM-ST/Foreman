@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="th.ac.ku.cs.sci.Foreman.Controller.FXMLController.Site.DetailSiteController">
+    <children>
+        <VBox>
+            <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                      <TextField fx:id="name">
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <ChoiceBox fx:id="statusBox" prefWidth="150.0">
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </HBox.margin>
+                  </ChoiceBox>
+                  <Button fx:id="uploadImageBtn" mnemonicParsing="false" onAction="#handleBtnUploadImage" text="uploadImage">
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="70.0" right="20.0" top="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="submitBtn" mnemonicParsing="false" onAction="#handleBtnSubmit" text="Submit">
+                     <HBox.margin>
+                        <Insets top="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="400.0" prefWidth="700.0">
+               <children>
+                  <ImageView fx:id="img" fitHeight="400.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets bottom="30.0" left="30.0" right="30.0" />
+                     </HBox.margin></ImageView>
+                  <TextArea fx:id="detail" prefHeight="400.0" prefWidth="273.0">
+                     <HBox.margin>
+                        <Insets bottom="30.0" left="30.0" right="30.0" />
+                     </HBox.margin>
+                  </TextArea>
+               </children>
+            </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

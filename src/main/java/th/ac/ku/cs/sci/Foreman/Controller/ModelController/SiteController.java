@@ -22,6 +22,15 @@ public class SiteController {
         service.createSite(site);
     }
 
+    public void update(int id,Site site) {
+        Site record = service.findById(id) ;
+        record.setName(site.getName());
+        record.setDetail(site.getDetail());
+        record.setStatus(site.getStatus());
+        record.setImg(site.getImg());
+        service.updateSite(record);
+    }
+
     public Collection<Site> getAll() {
         return service.getAllSite();
     }

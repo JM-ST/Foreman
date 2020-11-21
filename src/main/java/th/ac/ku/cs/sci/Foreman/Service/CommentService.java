@@ -1,13 +1,8 @@
 package th.ac.ku.cs.sci.Foreman.Service;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.TextArea;
 import org.springframework.stereotype.Service;
-import th.ac.ku.cs.sci.Foreman.Controller.ModelController.CommentController;
 import th.ac.ku.cs.sci.Foreman.Model.Comment;
-import th.ac.ku.cs.sci.Foreman.Model.Post;
-import th.ac.ku.cs.sci.Foreman.Session.UserSession;
-import th.ac.ku.cs.sci.Foreman.data.CommentRepository;
+import th.ac.ku.cs.sci.Foreman.Data.CommentRepository;
 
 import java.util.Collection;
 

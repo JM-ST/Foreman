@@ -2,7 +2,7 @@ package th.ac.ku.cs.sci.Foreman.Service;
 
 import org.springframework.stereotype.Service;
 import th.ac.ku.cs.sci.Foreman.Model.User;
-import th.ac.ku.cs.sci.Foreman.data.UserRepository;
+import th.ac.ku.cs.sci.Foreman.Data.UserRepository;
 
 import java.util.List;
 
