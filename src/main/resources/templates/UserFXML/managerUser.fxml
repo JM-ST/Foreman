@@ -8,46 +8,36 @@
    <children>
       <HBox prefHeight="600.0" prefWidth="800.0">
          <children>
-            <VBox prefHeight="600.0" prefWidth="600.0">
+            <VBox prefHeight="600.0" prefWidth="1004.0">
                <children>
+                  <Button mnemonicParsing="false" onAction="#handleBtnCreate" text="Create">
+                     <VBox.margin>
+                        <Insets left="625.0" top="50.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#handleBtnEdit" prefHeight="25.0" prefWidth="55.0" text="Edit">
+                     <VBox.margin>
+                        <Insets bottom="50.0" left="700.0" right="50.0" top="-25.0" />
+                     </VBox.margin>
+                  </Button>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="search" promptText="search">
+                        <TextField fx:id="search" prefHeight="25.0" prefWidth="255.0" promptText="search">
                            <HBox.margin>
-                              <Insets bottom="-3.0" left="-50.0" />
+                              <Insets bottom="-110.0" left="-150.0" right="-110.0" top="-110.0" />
                            </HBox.margin></TextField>
                      </children>
                      <VBox.margin>
                         <Insets left="200.0" right="150.0" top="30.0" />
                      </VBox.margin>
                   </HBox>
-                  <Label text="Find a Foreman : ">
+                  <TableView fx:id="table" prefHeight="633.0" prefWidth="800.0">
                      <VBox.margin>
-                        <Insets left="55.0" top="-20.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TableView fx:id="table" prefHeight="600.0" prefWidth="600.0">
-                     <VBox.margin>
-                        <Insets top="30.0" />
+                        <Insets top="-50.0" />
                      </VBox.margin></TableView>
                </children>
             </VBox>
-            <Pane prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <VBox prefHeight="600.0" prefWidth="200.0">
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#handleBtnCreate" text="Create">
-                           <VBox.margin>
-                              <Insets bottom="50.0" left="65.0" top="50.0" />
-                           </VBox.margin></Button>
-                        <Button mnemonicParsing="false" onAction="#handleBtnEdit" text="Edit">
-                           <VBox.margin>
-                              <Insets bottom="50.0" left="65.0" right="50.0" top="50.0" />
-                           </VBox.margin></Button>
-                     </children>
-                  </VBox>
-               </children>
-            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" />
          </children>
       </HBox>
    </children>
