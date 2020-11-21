@@ -36,7 +36,7 @@
                                                 <Insets bottom="35.0" left="35.0" right="35.0" top="35.0" />
                                              </VBox.margin>
                                           </Button>
-                                          <Button layoutX="45.0" layoutY="146.0" mnemonicParsing="false" style="-fx-border-color: white; -fx-border-width: 0px 0px 3px 0px; -fx-background-color: transparent; -fx-text-fill: white;" text="Profile">
+                                          <Button layoutX="45.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleBtnProfile" style="-fx-border-color: white; -fx-border-width: 0px 0px 3px 0px; -fx-background-color: transparent; -fx-text-fill: white;" text="Profile">
                                              <font>
                                                 <Font name="Noto Sans Bold" size="14.0" />
                                              </font>

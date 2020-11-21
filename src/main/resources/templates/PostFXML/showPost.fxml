@@ -39,7 +39,7 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#handleBtnImage" text="Image">
+                  <Button mnemonicParsing="false" onAction="#handleBtnImage" text="Image" visible="false">
                      <HBox.margin>
                         <Insets bottom="30.0" left="500.0" right="110.0" top="30.0" />
                      </HBox.margin>

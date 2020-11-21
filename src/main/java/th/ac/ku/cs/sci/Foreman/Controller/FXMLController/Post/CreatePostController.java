@@ -3,26 +3,21 @@ package th.ac.ku.cs.sci.Foreman.Controller.FXMLController.Post;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxmlView;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import th.ac.ku.cs.sci.Foreman.Controller.ModelController.PostController;
 import th.ac.ku.cs.sci.Foreman.Model.Post;
-import th.ac.ku.cs.sci.Foreman.Service.SiteService;
 import th.ac.ku.cs.sci.Foreman.Session.UserSession;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
+
 
 
 @Component
@@ -32,6 +27,8 @@ public class CreatePostController {
 
     private final PostController controller;
 
+    @FXML
+    private Button upload;
     @FXML
     private TextField topic ;
     @FXML
@@ -50,7 +47,7 @@ public class CreatePostController {
     }
 
     public void initialize() {
-
+        upload.setVisible(false);
     }
 
     public void handleBtnCreate(ActionEvent event) {
@@ -59,8 +56,6 @@ public class CreatePostController {
         Stage stage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
         stage.close();
     }
-
-
 
     public void handleBtnUpload(ActionEvent event) throws IOException {
         FileChooser imagefile = new FileChooser();

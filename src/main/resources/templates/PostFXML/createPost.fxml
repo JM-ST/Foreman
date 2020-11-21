@@ -22,7 +22,7 @@
                </VBox.margin></TextArea>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#handleBtnUpload" text="Upload Image">
+                  <Button fx:id="upload" mnemonicParsing="false" onAction="#handleBtnUpload" text="Upload Image">
                      <HBox.margin>
                         <Insets left="500.0" top="20.0" />
                      </HBox.margin>

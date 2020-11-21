@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import th.ac.ku.cs.sci.Foreman.Controller.ModelController.SiteController;
 
+import java.io.File;
+
 
 @Controller
 @FxmlView("createSite.fxml")

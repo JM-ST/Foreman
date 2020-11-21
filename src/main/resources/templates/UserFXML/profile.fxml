@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml" fx:controller="th.ac.ku.cs.sci.Foreman.Controller.FXMLController.User.ProfileController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="th.ac.ku.cs.sci.Foreman.Controller.FXMLController.User.ProfileController">
     <children>
         <HBox prefHeight="600.0" prefWidth="800.0">
             <children>
@@ -25,9 +25,9 @@
                               <Font name="System Bold" size="29.0" />
                            </font>
                         </Button>
-                        <ImageView fx:id="profile" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="profile" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                            <VBox.margin>
-                              <Insets top="120.0" />
+                              <Insets left="20.0" right="20.0" top="120.0" />
                            </VBox.margin>
                         </ImageView>
                      </children></VBox>
@@ -36,30 +36,74 @@
                <children>
                   <VBox fx:id="email" prefHeight="600.0" prefWidth="600.0">
                      <children>
-                        <TextField fx:id="name" promptText="Name" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 5px 0px; -fx-prompt-text-fill: black;">
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Name :">
+                                 <font>
+                                    <Font name="Noto Sans Regular" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin></Label>
+                              <TextField fx:id="name" alignment="TOP_LEFT" promptText="Name" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 5px 0px; -fx-prompt-text-fill: black;">
+                                 <font>
+                                    <Font name="Noto Sans Thai UI Regular" size="16.0" />
+                                 </font>
+                              </TextField>
+                           </children>
                            <VBox.margin>
-                              <Insets bottom="50.0" left="100.0" right="100.0" top="100.0" />
+                              <Insets left="100.0" top="35.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="E-mail :">
+                                 <font>
+                                    <Font name="Noto Sans Regular" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin></Label>
+                              <TextField fx:id="mail" editable="false" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 5px 0px; -fx-prompt-text-fill: black;">
+                                 <font>
+                                    <Font name="Noto Sans Thai UI Regular" size="16.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="100.0" top="35.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Tel. :    ">
+                                 <font>
+                                    <Font name="Noto Sans Regular" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin></Label>
+                              <TextField fx:id="tel" promptText="Tel" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 5px 0px; -fx-prompt-text-fill: black;">
+                                 <font>
+                                    <Font name="Noto Sans Thai UI Regular" size="16.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="100.0" top="35.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <Button mnemonicParsing="false" onAction="#handleBtnSave" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 3px 0px; -fx-border-color: white;" text="Save">
+                           <VBox.margin>
+                              <Insets left="450.0" top="100.0" />
                            </VBox.margin>
                            <font>
-                              <Font name="Noto Sans Thai UI Regular" size="16.0" />
+                              <Font name="Noto Sans Regular" size="18.0" />
                            </font>
-                        </TextField>
-                        <TextField fx:id="mail" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 5px 0px; -fx-prompt-text-fill: black;">
-                           <VBox.margin>
-                              <Insets bottom="50.0" left="100.0" right="100.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font name="Noto Sans Thai UI Regular" size="16.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="tel" promptText="Tel" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 5px 0px; -fx-prompt-text-fill: black;">
-                           <VBox.margin>
-                              <Insets left="100.0" right="100.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font name="Noto Sans Thai UI Regular" size="16.0" />
-                           </font>
-                        </TextField>
+                        </Button>
                      </children></VBox>
                </children></Pane>
             </children></HBox>

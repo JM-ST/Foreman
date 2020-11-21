@@ -40,6 +40,7 @@ public class IndexUserController {
     private final Resource MANGERUSERFXML ;
     private final Resource SITEFXML;
     private final Resource POSTFXML;
+    private final Resource PROFILE;
     private final Resource LOGIN;
     private final ApplicationContext ac ;
 
@@ -57,24 +58,32 @@ public class IndexUserController {
                                @Value("classpath:templates/UserFXML/managerUser.fxml") Resource MANAGERUSERFXML,
                                @Value("classpath:templates/SiteFXML/createSite.fxml") Resource SITEFXML,
                                @Value("classpath:templates/PostFXML/index.fxml") Resource POSTFXML,
+                               @Value("classpath:templates/UserFXML/profile.fxml") Resource PROFILE,
                                @Value("classpath:templates/UserFXML/login.fxml") Resource LOGIN,
                                ApplicationContext ac) {
         this.siteController = siteController;
         this.MANGERUSERFXML = MANAGERUSERFXML;
         this.SITEFXML = SITEFXML;
         this.POSTFXML = POSTFXML;
+        this.PROFILE = PROFILE;
         this.LOGIN = LOGIN;
         this.ac = ac ;
     }
 
     public void initialize() throws IOException {
-        profile.setImage(new Image("/public/placeholder.jpg"));
+        profile.setImage(new Image("/public/user_placeholder.jpg"));
         loadSite();
     }
 
     public void handleBtnUserManager(ActionEvent event) throws IOException {
         StageCaller call = new StageCaller(MANGERUSERFXML,ac);
         call.getStage("ManagerUser").showAndWait();;
+    }
+
+    public void handleBtnProfile(ActionEvent event) throws IOException {
+        StageCaller call = new StageCaller(PROFILE,ac);
+        call.changeScene((Stage) ((Node)event.getTarget()).getScene().getWindow() ,
+                "Profile").show();
     }
 
     public void handleBtnShow(ActionEvent event) throws IOException {
@@ -84,7 +93,6 @@ public class IndexUserController {
         call.getStage(table.getSelectionModel().getSelectedItem().getName()).showAndWait();
     }
 
-    @FXML
     public void handleBtnCreateSite(ActionEvent event) {
         try {
             Stage stage = new Stage();
@@ -99,7 +107,6 @@ public class IndexUserController {
         tableRefresh();
     }
 
-    @FXML
     public void handleBtnExits(ActionEvent event) throws IOException {
         UserSession.clearUserSession();
         StageCaller call = new StageCaller(LOGIN,ac);
@@ -120,7 +127,7 @@ public class IndexUserController {
 
         SITE.setCellValueFactory(new PropertyValueFactory<>("name"));
         STATUS.setCellValueFactory(new PropertyValueFactory<>("status"));
-        DATE.setCellValueFactory(new PropertyValueFactory<>("createdAt"));
+        DATE.setCellValueFactory(new PropertyValueFactory<>("updateAt"));
 
         table.getColumns().addAll(SITE,STATUS,DATE);
         table.getItems().addAll(siteController.getAll());
