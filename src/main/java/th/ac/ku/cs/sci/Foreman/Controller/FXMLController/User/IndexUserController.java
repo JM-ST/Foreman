@@ -1,5 +1,7 @@
 package th.ac.ku.cs.sci.Foreman.Controller.FXMLController.User;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,13 +25,17 @@ import org.springframework.stereotype.Controller;
 import th.ac.ku.cs.sci.Foreman.Application.StageCaller;
 import th.ac.ku.cs.sci.Foreman.Controller.FXMLController.Post.IndexPostController;
 import th.ac.ku.cs.sci.Foreman.Controller.ModelController.SiteController;
+import th.ac.ku.cs.sci.Foreman.Controller.ModelController.UserController;
 import th.ac.ku.cs.sci.Foreman.Model.Site;
+import th.ac.ku.cs.sci.Foreman.Model.Tableview.UserNameWithSite;
 import th.ac.ku.cs.sci.Foreman.Model.User;
 import th.ac.ku.cs.sci.Foreman.Session.UserSession;
 
 
 import java.io.IOException;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Collection;
 
 
 @Controller
@@ -37,6 +43,7 @@ import java.sql.Date;
 public class IndexUserController {
 
     private final SiteController siteController;
+    private final UserController userController;
     private final Resource MANGERUSERFXML ;
     private final Resource SITEFXML;
     private final Resource POSTFXML;
@@ -45,7 +52,7 @@ public class IndexUserController {
     private final ApplicationContext ac ;
 
     @FXML
-    private TableView<Site> table ;
+    private TableView<UserNameWithSite> table ;
 
     @FXML
     private Button createSiteBtn, userManagerBtn;
@@ -55,6 +62,7 @@ public class IndexUserController {
 
     @Autowired
     public IndexUserController(SiteController siteController,
+                               UserController userController,
                                @Value("classpath:templates/UserFXML/managerUser.fxml") Resource MANAGERUSERFXML,
                                @Value("classpath:templates/SiteFXML/createSite.fxml") Resource SITEFXML,
                                @Value("classpath:templates/PostFXML/index.fxml") Resource POSTFXML,
@@ -62,6 +70,7 @@ public class IndexUserController {
                                @Value("classpath:templates/UserFXML/login.fxml") Resource LOGIN,
                                ApplicationContext ac) {
         this.siteController = siteController;
+        this.userController = userController;
         this.MANGERUSERFXML = MANAGERUSERFXML;
         this.SITEFXML = SITEFXML;
         this.POSTFXML = POSTFXML;
@@ -89,8 +98,8 @@ public class IndexUserController {
     public void handleBtnShow(ActionEvent event) throws IOException {
         StageCaller call = new StageCaller(POSTFXML,ac);
         IndexPostController controller = call.getApplicationContext().getBean(IndexPostController.class);
-        controller.setStie(table.getSelectionModel().getSelectedItem());
-        call.getStage(table.getSelectionModel().getSelectedItem().getName()).showAndWait();
+        controller.setStie(table.getSelectionModel().getSelectedItem().getModelSite());
+        call.getStage(table.getSelectionModel().getSelectedItem().getModelSite().getName()).showAndWait();
     }
 
     public void handleBtnCreateSite(ActionEvent event) {
@@ -121,25 +130,38 @@ public class IndexUserController {
 
     private void loadSite() {
 
-        TableColumn<Site,String> SITE = new TableColumn<>("Site");
-        TableColumn<Site,String> STATUS = new TableColumn<>("Status");
-        TableColumn<Site,Date> DATE = new TableColumn<>("lastUpDate");
+        TableColumn<UserNameWithSite,String> SITE = new TableColumn<>("Site");
+        TableColumn<UserNameWithSite,String> STATUS = new TableColumn<>("Status");
+        TableColumn<UserNameWithSite,Date> DATE = new TableColumn<>("lastUpDate");
+        TableColumn<UserNameWithSite,String> FOREMAN = new TableColumn<>("Foreman");
 
-        SITE.setCellValueFactory(new PropertyValueFactory<>("name"));
+        SITE.setCellValueFactory(new PropertyValueFactory<>("siteName"));
         STATUS.setCellValueFactory(new PropertyValueFactory<>("status"));
+        FOREMAN.setCellValueFactory(new PropertyValueFactory<>("userName"));
         DATE.setCellValueFactory(new PropertyValueFactory<>("updateAt"));
 
-        table.getColumns().addAll(SITE,STATUS,DATE);
+        table.getColumns().addAll(SITE,STATUS,FOREMAN,DATE);
+
+        Collection<UserNameWithSite> data = new ArrayList<>();
 
 
         if (UserSession.getUserInstance().getRole() == User.Role.ADMIN) {
-            table.getItems().addAll(siteController.getAll());
+            for (Site s: siteController.getAll()) {
+                data.add(new UserNameWithSite(s,userController.getNameById(s.getUserid()).getName()));
+            }
+            table.getItems().addAll(data);
         }else if (UserSession.getUserInstance().getRole() == User.Role.VIEWER){
-            table.getItems().addAll(siteController.getAll());
+            for (Site s: siteController.getAll()) {
+                data.add(new UserNameWithSite(s,userController.getNameById(s.getUserid()).getName()));
+            }
+            table.getItems().addAll(data);
             createSiteBtn.setVisible(false);
             userManagerBtn.setVisible(false);
         }else if (UserSession.getUserInstance().getRole() == User.Role.USER){
-            table.getItems().addAll(siteController.getAllByUserId(UserSession.getUserInstance().getId()));
+            for (Site s: siteController.getAllByUserId(UserSession.getUserInstance().getId())) {
+                data.add(new UserNameWithSite(s,userController.getNameById(s.getUserid()).getName()));
+            }
+            table.getItems().addAll(data);
             createSiteBtn.setVisible(false);
             userManagerBtn.setVisible(false);
         }

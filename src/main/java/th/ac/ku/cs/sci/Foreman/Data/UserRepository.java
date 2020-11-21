@@ -9,7 +9,6 @@ import java.util.Collection;
 @Repository
 public interface UserRepository extends JpaRepository<User,Integer> {
 
-
     Collection<User> findAllByRole(User.Role role);
     User findUserByEmail(String email);
     User findUserByName(String name);

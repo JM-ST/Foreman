@@ -54,4 +54,8 @@ public class UserController {
     public User getByName(String name) {
         return service.getUserbyName(name);
     }
+
+    public User getNameById(int userid) {
+        return service.findById(userid);
+    }
 }
