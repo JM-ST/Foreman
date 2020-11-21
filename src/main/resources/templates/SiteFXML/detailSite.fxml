@@ -53,7 +53,7 @@
                      </HBox.margin>
                      <children>
                         <Label text="Report :" />
-                        <TextArea fx:id="detail" prefHeight="346.0" prefWidth="180.0" />
+                        <TextArea fx:id="detail" prefHeight="357.0" prefWidth="180.0" />
                      </children></VBox>
                </children>
             </HBox>
