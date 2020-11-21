@@ -17,8 +17,8 @@ public class SiteController {
         this.service = service ;
     }
 
-    public void createSite(String name) {
-        Site site = new Site(name,Site.Status.PLANING);
+    public void createSite(String name,int userid) {
+        Site site = new Site(name,userid,Site.Status.PLANING);
         service.createSite(site);
     }
 
@@ -36,4 +36,7 @@ public class SiteController {
     }
 
 
+    public Collection<Site> getAllByUserId(int id) {
+        return service.getAllSiteByUserId(id);
+    }
 }

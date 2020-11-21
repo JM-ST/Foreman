@@ -29,7 +29,7 @@ public class User {
     private Role role ;
 
     public enum Role {
-        USER,ADMIN ;
+        USER,ADMIN,VIEWER ;
     }
 
     public User(String email,String name,String password, String tel,Role role) {

@@ -2,8 +2,10 @@ package th.ac.ku.cs.sci.Foreman.Controller.FXMLController.User;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.stereotype.Controller;
 import th.ac.ku.cs.sci.Foreman.Controller.ModelController.UserController;
@@ -49,5 +51,7 @@ public class EditUserController {
         user.setTel(tel.getText());
         user.setRole(rolebox.getValue());
         controller.updateUser(user);
+        Stage stage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
+        stage.close();
     }
 }

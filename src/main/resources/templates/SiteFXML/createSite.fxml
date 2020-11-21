@@ -9,10 +9,36 @@
    <children>
       <VBox prefHeight="150.0" prefWidth="300.0">
          <children>
-            <TextField fx:id="name" />
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Name">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="name" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Foreman">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="50.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ChoiceBox fx:id="userBox" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </VBox.margin>
+                  </ChoiceBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </VBox>
             <Button mnemonicParsing="false" onAction="#handleBtnCreateSite" prefHeight="20.0" prefWidth="150.0" text="CreateSite">
                <VBox.margin>
-                  <Insets bottom="30.0" left="80.0" right="80.0" top="30.0" />
+                  <Insets bottom="30.0" left="80.0" right="80.0" top="35.0" />
                </VBox.margin>
                <font>
                   <Font name="Noto Sans Bold" size="13.0" />

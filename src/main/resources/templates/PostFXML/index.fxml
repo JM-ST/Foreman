@@ -27,12 +27,12 @@
                 <TableView fx:id="table" prefHeight="400.0" prefWidth="600.0" />
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#handleBtnCreate" text="Create">
+                  <Button fx:id="createBtn" mnemonicParsing="false" onAction="#handleBtnCreate" text="Create">
                      <HBox.margin>
                         <Insets bottom="30.0" left="70.0" right="70.0" top="35.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handleBtnEdit" text="Edit">
+                  <Button fx:id="editBtn" mnemonicParsing="false" onAction="#handleBtnEdit" text="Edit">
                      <HBox.margin>
                         <Insets bottom="30.0" left="70.0" right="70.0" top="35.0" />
                      </HBox.margin>

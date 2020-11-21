@@ -11,6 +11,7 @@ import th.ac.ku.cs.sci.Foreman.Session.UserSession;
 
 import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.Collection;
+import java.util.List;
 
 @Controller
 @Component
@@ -42,7 +43,15 @@ public class UserController {
     }
 
 
-    public Collection<? extends User> getAll() {
+    public Collection<User> getAll() {
         return service.getAllUser();
+    }
+
+    public Collection<User> getAllByRole(User.Role role) {
+        return service.getAllUserbyRole(role);
+    }
+
+    public User getByName(String name) {
+        return service.getUserbyName(name);
     }
 }

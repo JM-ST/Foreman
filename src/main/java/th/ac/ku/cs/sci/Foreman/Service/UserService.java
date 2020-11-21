@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import th.ac.ku.cs.sci.Foreman.Model.User;
 import th.ac.ku.cs.sci.Foreman.Data.UserRepository;
 
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -35,4 +36,11 @@ public class UserService {
         return repository.findUserByEmail(email);
     }
 
+    public Collection<User> getAllUserbyRole(User.Role role) {
+        return repository.findAllByRole(role);
+    }
+
+    public User getUserbyName(String name) {
+        return repository.findUserByName(name);
+    }
 }

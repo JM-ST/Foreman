@@ -49,4 +49,8 @@ public class SiteService {
     public Site findByName(String name) {
         return repository.findSitesByName(name);
     }
+
+    public Collection<Site> getAllSiteByUserId(int id) {
+        return repository.findAllByUserid(id);
+    }
 }

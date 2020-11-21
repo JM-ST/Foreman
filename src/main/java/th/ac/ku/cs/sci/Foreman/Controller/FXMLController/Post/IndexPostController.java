@@ -2,6 +2,7 @@ package th.ac.ku.cs.sci.Foreman.Controller.FXMLController.Post;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -16,8 +17,10 @@ import th.ac.ku.cs.sci.Foreman.Application.StageCaller;
 import th.ac.ku.cs.sci.Foreman.Controller.FXMLController.Site.DetailSiteController;
 import th.ac.ku.cs.sci.Foreman.Model.Post;
 import th.ac.ku.cs.sci.Foreman.Model.Site;
+import th.ac.ku.cs.sci.Foreman.Model.User;
 import th.ac.ku.cs.sci.Foreman.Service.PostService;
 import th.ac.ku.cs.sci.Foreman.Service.SiteService;
+import th.ac.ku.cs.sci.Foreman.Session.UserSession;
 
 import java.io.IOException;
 import java.sql.Date;
@@ -35,9 +38,13 @@ public class IndexPostController {
     private final PostService postService ;
     private Site site ;
 
+
+    @FXML
+    private Button editBtn;
+    @FXML
+    private Button createBtn;
     @FXML
     private Label siteName , status ;
-
     @FXML
     private TableView<Post> table ;
 
@@ -66,6 +73,10 @@ public class IndexPostController {
         siteName.setText("SITE: "+site.getName());
         status.setText("STATUS: "+ site.getStatus().toString());
 
+        if (UserSession.getUserInstance().getRole() == User.Role.VIEWER){
+            createBtn.setVisible(false);
+            editBtn.setVisible(false);
+        }
         loadPost();
     }
 

@@ -130,9 +130,16 @@ public class IndexUserController {
         DATE.setCellValueFactory(new PropertyValueFactory<>("updateAt"));
 
         table.getColumns().addAll(SITE,STATUS,DATE);
-        table.getItems().addAll(siteController.getAll());
 
-        if (UserSession.getUserInstance().getRole() != User.Role.ADMIN) {
+
+        if (UserSession.getUserInstance().getRole() == User.Role.ADMIN) {
+            table.getItems().addAll(siteController.getAll());
+        }else if (UserSession.getUserInstance().getRole() == User.Role.VIEWER){
+            table.getItems().addAll(siteController.getAll());
+            createSiteBtn.setVisible(false);
+            userManagerBtn.setVisible(false);
+        }else if (UserSession.getUserInstance().getRole() == User.Role.USER){
+            table.getItems().addAll(siteController.getAllByUserId(UserSession.getUserInstance().getId()));
             createSiteBtn.setVisible(false);
             userManagerBtn.setVisible(false);
         }

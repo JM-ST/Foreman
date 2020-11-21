@@ -20,6 +20,8 @@ public class Site {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id ;
 
+    private int userid ;
+
     private String name ;
 
     private String detail ;
@@ -38,8 +40,9 @@ public class Site {
         CANCEL,PLANING,WORKING,FINISHED ;
     }
 
-    public Site(String name,Status status) {
+    public Site(String name,int userid,Status status) {
         this.name = name ;
+        this.userid = userid;
         this.status = status ;
     }
 

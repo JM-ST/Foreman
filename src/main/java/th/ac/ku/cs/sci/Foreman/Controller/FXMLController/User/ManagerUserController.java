@@ -53,7 +53,6 @@ public class ManagerUserController {
                 table.setItems(filterList((List<User>) controller.getAll(),newValue)));
     }
 
-
     public void handleBtnCreate(ActionEvent event) throws IOException {
         StageCaller call = new StageCaller(CREATEUSERFXML,ac);
         call.getStage("Create User").showAndWait();

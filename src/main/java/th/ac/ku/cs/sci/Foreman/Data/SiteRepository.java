@@ -8,6 +8,8 @@ import java.util.Collection;
 
 @Repository
 public interface SiteRepository extends JpaRepository<Site,Integer> {
+
+    Collection<Site> findAllByUserid(int id);
     Collection<Site> findByStatus(Site.Status status);
     Site findSitesByName(String name);
 }
