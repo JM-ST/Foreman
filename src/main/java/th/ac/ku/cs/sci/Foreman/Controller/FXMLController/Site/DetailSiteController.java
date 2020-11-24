@@ -35,7 +35,7 @@ public class DetailSiteController {
     @FXML
     private TextField name;
     @FXML
-    private ChoiceBox statusBox;
+    private ChoiceBox<Site.Status> statusBox;
     @FXML
     private Button submitBtn;
     @FXML
@@ -88,8 +88,8 @@ public class DetailSiteController {
                 to,
                 StandardCopyOption.REPLACE_EXISTING
         );
-        img.setImage(new Image("public/siteImage/"+site.getId()+"/"+site.getId()+".jpg"));
         upload = "public/siteImage/"+site.getId()+"/"+site.getId()+".jpg";
+        img.setImage(new Image("public/siteImage/"+site.getId()+"/"+site.getId()+".jpg"));
     }
 
     public void handleBtnSubmit(ActionEvent event) {

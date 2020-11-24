@@ -25,6 +25,7 @@ public class JavafxApplication extends Application {
                 genericApplicationContext.registerBean(Application.class, () -> JavafxApplication.this);
                 genericApplicationContext.registerBean(Parameters.class,this::getParameters);
                 genericApplicationContext.registerBean(HostServices.class,this::getHostServices);
+                genericApplicationContext.setDisplayName("Thai Renovation");
             };
         this.context = new SpringApplicationBuilder()
                 .sources(ForemanApplication.class)

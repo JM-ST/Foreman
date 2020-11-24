@@ -16,6 +16,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import th.ac.ku.cs.sci.Foreman.Application.StageCaller;
 import th.ac.ku.cs.sci.Foreman.Controller.FXMLController.Site.DetailSiteController;
+import th.ac.ku.cs.sci.Foreman.Controller.FXMLController.Site.ReportSiteController;
 import th.ac.ku.cs.sci.Foreman.Model.Post;
 import th.ac.ku.cs.sci.Foreman.Model.Site;
 import th.ac.ku.cs.sci.Foreman.Model.User;
@@ -31,6 +32,7 @@ import java.sql.Date;
 public class IndexPostController {
 
     private final Resource SITEDETAILFXML ;
+    private final Resource REPORTFXML ;
     private final Resource CREATEPOSTFXML;
     private final Resource EDITPOSTFXML;
     private final Resource SHOWPOSTFXML;
@@ -52,11 +54,13 @@ public class IndexPostController {
 
     @Autowired
     public IndexPostController(@Value("classpath:templates/SiteFXML/detailSite.fxml") Resource SITEDETAILFXML,
+                               @Value("classpath:templates/SiteFXML/reportSite.fxml") Resource REPORTFXML,
                                @Value("classpath:templates/PostFXML/createPost.fxml") Resource CREATEPOSTFXML,
                                @Value("classpath:templates/PostFXML/editPost.fxml") Resource EDITPOSTFXML,
                                @Value("classpath:templates/PostFXML/showPost.fxml") Resource SHOWPOSTFXML,
                                ApplicationContext ac,
                                SiteService siteService, PostService postService) {
+        this.REPORTFXML = REPORTFXML;
         this.SITEDETAILFXML = SITEDETAILFXML;
         this.CREATEPOSTFXML = CREATEPOSTFXML;
         this.EDITPOSTFXML = EDITPOSTFXML;
@@ -86,6 +90,15 @@ public class IndexPostController {
         DetailSiteController controller = call.getApplicationContext().getBean(DetailSiteController.class);
         controller.setSite(site);
         call.getStage("Detail : "+site.getName()).showAndWait();
+
+        tableRefresh();
+    }
+
+    public void handleBtnReport() throws IOException {
+        StageCaller call  = new StageCaller(REPORTFXML,ac);
+        ReportSiteController controller = call.getApplicationContext().getBean(ReportSiteController.class);
+        controller.setSite(site);
+        call.getStage("Report : "+site.getName()).showAndWait();
 
         tableRefresh();
     }

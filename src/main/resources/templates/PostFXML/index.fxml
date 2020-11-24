@@ -21,7 +21,8 @@
                                 <Font name="Noto Sans Regular" size="16.0" />
                             </font>
                         </Label>
-                  <Label layoutX="555.0" layoutY="6.0" mnemonicParsing="false" onMouseClicked="#handleBtnDetail" text="Detail" underline="true" />
+                  <Label layoutX="515.0" layoutY="22.0" mnemonicParsing="false" onMouseClicked="#handleBtnDetail" text="Detail" underline="true" />
+                  <Button fx:id="reportBtn" layoutX="506.0" layoutY="60.0" mnemonicParsing="false" onAction="#handleBtnReport" text="Report" />
                     </children>
                 </Pane>
                 <TableView fx:id="table" prefHeight="400.0" prefWidth="600.0" />

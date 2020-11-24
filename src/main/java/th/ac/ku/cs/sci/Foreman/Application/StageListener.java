@@ -39,7 +39,7 @@ public class StageListener implements ApplicationListener<StageReadyEvent> {
             Parent root = fxmlLoader.load();
             Scene scene = new Scene(root,800,600);
             stage.setScene(scene);
-            stage.setTitle(this.applictionTitle);
+            stage.setTitle(context.getDisplayName()+":\t"+this.applictionTitle);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

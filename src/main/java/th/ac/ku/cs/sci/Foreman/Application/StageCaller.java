@@ -25,7 +25,7 @@ public class StageCaller {
         FXMLLoader loader = new FXMLLoader(resource.getURL());
         loader.setControllerFactory(applicationContext::getBean);
         stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle(titleStage);
+        stage.setTitle(applicationContext.getDisplayName()+"\t"+titleStage);
         stage.setScene(new Scene((Parent) loader.load()));
         return stage;
     }
@@ -33,7 +33,7 @@ public class StageCaller {
     public Stage changeScene(Stage stage,String titleStage) throws IOException {
         FXMLLoader loader = new FXMLLoader(resource.getURL());
         loader.setControllerFactory(applicationContext::getBean);
-        stage.setTitle(titleStage);
+        stage.setTitle(applicationContext.getDisplayName()+"\t"+titleStage);
         stage.setScene(new Scene((Parent) loader.load()));
         return stage ;
     }
