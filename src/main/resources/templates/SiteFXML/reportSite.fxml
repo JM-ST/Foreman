@@ -3,7 +3,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="th.ac.ku.cs.sci.Foreman.Controller.FXMLController.Site.ReportSiteController">
    <children>
       <MenuBar prefHeight="29.0" prefWidth="600.0">
@@ -25,6 +24,6 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TextArea fx:id="reportArea" layoutY="29.0" prefHeight="372.0" prefWidth="600.0" style="-fx-border-color: transparent;" />
+      <TextArea fx:id="reportArea" editable="false" layoutY="29.0" prefHeight="372.0" prefWidth="600.0" style="-fx-border-color: transparent;" />
    </children>
 </AnchorPane>
